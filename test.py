@@ -14,7 +14,7 @@ cursor = db.cursor()
 # SQL 查询语句
 sql = "SELECT count(*) FROM baiyug_vod WHERE d_name like '%%%s%%'" % (keywords)
 
-print(sql)
+# print(sql)
 # try:
     # 执行SQL语句
 cursor.execute(sql)
