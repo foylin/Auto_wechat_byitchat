@@ -48,6 +48,7 @@ def get_video(name):
         video_link = 'http://videocms.net/index.php?m=vod-search-wd-%s' % quote(name)
     else:
         return
+    # print
     db.close()
     return video_link
 
