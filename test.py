@@ -1,11 +1,13 @@
 import pymysql
 import io
 import sys
+from urllib.parse import quote
+
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='gb18030')
 # keywords = input()
-keywords = '舞蹈'
+keywords = '人民的名义'
 # 打开数据库连接
-db = pymysql.connect(host='127.0.0.1', port=3306, user='root',
+db = pymysql.connect(host='localhost', port=3306, user='root',
                      passwd='root', db='videocms', charset='utf8')
 
 # 使用cursor()方法获取操作游标
@@ -20,7 +22,11 @@ sql = "SELECT count(*) FROM baiyug_vod WHERE d_name like '%%%s%%'" % (keywords)
 cursor.execute(sql)
     # 获取所有记录列表
 results = cursor.fetchone()
-print("%d" % results)
+print(results[0])
+if  results[0] > 0:
+    # print(results[0])
+     video_link = 'http://videocms.net/index.php?m=vod-search-wd-%s' % quote(keywords)
+     print(video_link)
 # for row in results:
 #         # print(row[0])
 #     fname = row[0]
