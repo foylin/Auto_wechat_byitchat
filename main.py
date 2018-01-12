@@ -4,6 +4,7 @@ import itchat
 import pymysql
 import io
 import sys
+import time
 # import urllib
 from urllib.parse import quote
 
@@ -60,6 +61,7 @@ def tuling_reply(msg):
     reply = get_response(msg['Text'])
 
     video_reply = get_video(msg['Text'])
+    time.sleep(2)
     return video_reply or reply
 
 itchat.auto_login(hotReload=True)
